@@ -4,10 +4,12 @@ CARRIAGE_RETURN = b"\x0d"
 
 
 def frame(message: bytes) -> bytes:
+    """Wrap payload bytes in MLLP framing."""
     return START_BLOCK + message + END_BLOCK + CARRIAGE_RETURN
 
 
 def unframe_stream(buffer: bytes) -> tuple[list[bytes], bytes]:
+    """Extract MLLP frames from a byte buffer and return frames plus remainder."""
     frames: list[bytes] = []
     if not buffer:
         return frames, b""

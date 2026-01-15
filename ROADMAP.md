@@ -22,17 +22,22 @@ Exit criteria:
 - Basic docs and examples.
 
 ## Phase 2: Reliability and Observability
-- Timeouts, retries, backoff for client.
-- Connection handling improvements (keepalive, connection limits).
-- Improved diagnostics and log context.
+- Client reliability: retries with backoff, configurable retry count.
+- Server robustness: connection limits, graceful shutdown, idle connection metrics.
+- Better diagnostics: structured log fields for peer address and message IDs.
+- Config validation warnings (unknown keys, type mismatches).
+- Optional metrics hooks (Prometheus exporter or stats callback).
+- Integration tests for failure scenarios (timeouts, oversized frames).
 
 ## Phase 3: Protocol Enhancements
-- TLS/mTLS support.
-- Better HL7 parsing (optional).
-- Support for batch messages (if required).
-- Optional validation with AE/AR responses.
+- TLS and mTLS for server and client.
+- Optional HL7 validation plugin interface.
+- AE/AR responses when validation is enabled.
+- Batch message support (if required by integrations).
+- Improved MSH parsing and configurable ACK templates.
 
 ## Phase 4: Ecosystem & Integrations
-- Docker image and Helm chart.
-- Prometheus metrics.
-- Integration examples (Mirth, Iguana, etc.).
+- Published Docker image and optional Helm chart.
+- Integration examples (Mirth, Iguana, Rhapsody, etc.).
+- Operational guidance and deployment samples (systemd, docker-compose).
+- Performance benchmarks and tuning guide.

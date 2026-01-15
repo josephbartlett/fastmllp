@@ -18,7 +18,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--log-message",
-        action="store_true",
+        action=argparse.BooleanOptionalAction,
         default=None,
         help="Log raw HL7 payloads",
     )

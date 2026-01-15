@@ -7,6 +7,18 @@ Semantic Versioning.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-01-15
+### Added
+- MIT license file.
+- Docstrings for public API helpers.
+- Oversize payload integration test.
+
+### Changed
+- CLI supports `--no-log-message` to override config defaults.
+
+### Fixed
+- Enforce `max_size` for complete frames before ACKing.
+
 ## [0.1.0] - 2026-01-15
 ### Added
 - Initial HL7 MLLP client/server with always-ACK behavior.

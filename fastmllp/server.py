@@ -17,6 +17,7 @@ def serve(
     max_size: int = 1048576,
     log_message: bool = False,
 ) -> None:
+    """Run a blocking MLLP server that ACKs complete frames."""
     logger = std_logging.getLogger("fastmllp")
     if not logger.handlers:
         logger = configure_logging("info")
@@ -47,6 +48,15 @@ def serve(
                 frames, buffer = unframe_stream(buffer)
 
                 for payload in frames:
+                    if len(payload) > max_size:
+                        log_event(
+                            logger,
+                            std_logging.WARNING,
+                            "frame_too_large",
+                            conn_id=conn_id,
+                            length=len(payload),
+                        )
+                        return
                     message_text = payload.decode(encoding, errors="replace")
                     if log_message:
                         log_event(

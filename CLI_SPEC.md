@@ -13,7 +13,7 @@ Commands:
 ## Common Options
 - `--config <path>`: optional TOML config file (only loaded if provided)
 - `--log-level <level>`: `debug|info|warning|error`
-- `--log-message`: opt-in to log raw HL7 payloads
+- `--log-message` / `--no-log-message`: opt-in/out for raw HL7 payload logging
 
 ## Server Command
 ```

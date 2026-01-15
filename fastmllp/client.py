@@ -11,6 +11,7 @@ def send(
     timeout: float = 10.0,
     encoding: str = "utf-8",
 ) -> str:
+    """Send a single HL7 message and return the first ACK."""
     if isinstance(message, str):
         payload = message.encode(encoding, errors="replace")
     elif isinstance(message, (bytes, bytearray)):

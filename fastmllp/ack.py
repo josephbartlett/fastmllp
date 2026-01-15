@@ -5,6 +5,7 @@ from .hl7 import DEFAULT_ENCODING_CHARS, DEFAULT_FIELD_SEP, parse_msh
 
 
 def build_ack(message: str, *, ack_code: str = "AA") -> str:
+    """Build an HL7 ACK message string for an inbound message."""
     msh = parse_msh(message)
 
     field_sep = msh.get("field_sep") or DEFAULT_FIELD_SEP

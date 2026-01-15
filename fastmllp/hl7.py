@@ -3,6 +3,7 @@ DEFAULT_ENCODING_CHARS = "^~\\&"
 
 
 def parse_msh(message: str) -> dict:
+    """Parse MSH with best-effort defaults."""
     defaults = {
         "field_sep": DEFAULT_FIELD_SEP,
         "encoding_chars": DEFAULT_ENCODING_CHARS,
